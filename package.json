@@ -1,0 +1,17 @@
+{
+  "name": "fidelity2ynab",
+  "version": "1.0.0",
+  "description": "Fidelity doesnt play nicely with YNAB, so this tool will take the fidelity transaction notifcation emails and make an entry into ynab",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "imap": "^0.8.19",
+    "mailparser": "^3.6.9",
+    "ynab": "^2.2.0"
+  }
+}
