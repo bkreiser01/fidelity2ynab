@@ -22,7 +22,7 @@ IMAP_PORT=993
 
 `YNAB_BUDGET_ID`: Your budget's id. This can be found in the link when you are viewing your budget. For example, if you are looking at your budget overview, the link may look like this 'https://app.ynab.com/your-budget-id/budget/202403'
 
-`YNAB_ACCOUNT_ID `: This is the account where you want transactions to appear (most likely the fidelity credit card account). This can be found in the link when you are looking at your fidelity credit card account in YNAB. https://app.ynab.com/your-budget-id/accounts/your-account-id
+`YNAB_ACCOUNT_ID`: This is the account where you want transactions to appear (most likely the fidelity credit card account). This can be found in the link when you are looking at your fidelity credit card account in YNAB. https://app.ynab.com/your-budget-id/accounts/your-account-id
 
 `FIDELITY_EMAIL_NAME`: This is the name of the email used for fidelity. For example, if you have fidelity send emails to jdoe@gmail.com your name is jdoe.
 
