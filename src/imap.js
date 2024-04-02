@@ -1,5 +1,7 @@
 var Imap = require('imap'), inspect = require('util').inspect;
 const { addTransaction } = require("./ynabAPI")
+const { getCurrentDate } = require("./common")
+const { log_email } = require("./logger")
 const fidelity_sender = 'fidelityealerts_at_alert.fidelityrewards.com_' + process.env.FIDELITY_EMAIL_NAME
 
 var imap = new Imap({
@@ -37,23 +39,6 @@ function fetchEmailBody(seqno, callback) {
         });
         });
     });
-}
-function getCurrentDate() {
-    const currentDate = new Date();
-  
-    // Extracting individual components of the date
-    const month = currentDate.getMonth() + 1; // Months are zero-based, so we add 1
-    const day = currentDate.getDate();
-    const year = currentDate.getFullYear();
-  
-    // Formatting the date with leading zeros if necessary
-    const formattedMonth = month < 10 ? '0' + month : month;
-    const formattedDay = day < 10 ? '0' + day : day;
-  
-    // Constructing the date string in the desired format (mm-dd-yyyy)
-    const formattedDate = year + '-' + formattedMonth + '-' + formattedDay;
-  
-    return formattedDate;
 }
 
 function extractInfo(email) {
@@ -99,6 +84,8 @@ module.exports = {
                                 sender: envelope.sender[0].mailbox,
                                 body: body
                             }
+
+                            log_email(emailObj)
 
                             if (emailObj.sender == fidelity_sender) {
                                 let transaction_info = extractInfo(emailObj);
