@@ -1,7 +1,7 @@
 var Imap = require('imap'), inspect = require('util').inspect;
 const { addTransaction } = require("./ynabAPI")
 const { getCurrentDate } = require("./common")
-const { log_email } = require("./logger")
+const { log_object } = require("./logger")
 const fidelity_sender = 'fidelityealerts_at_alert.fidelityrewards.com_' + process.env.FIDELITY_EMAIL_NAME
 
 var imap = new Imap({
@@ -85,7 +85,7 @@ module.exports = {
                                 body: body
                             }
 
-                            log_email(emailObj)
+                            log_email(log_object)
 
                             if (emailObj.sender == fidelity_sender) {
                                 let transaction_info = extractInfo(emailObj);
