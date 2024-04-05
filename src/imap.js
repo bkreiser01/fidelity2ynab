@@ -86,7 +86,7 @@ module.exports = {
                             }
 
                             if (emailObj.sender == fidelity_sender) {
-                                log_email(log_object)
+                                log_object(emailObj)
                                 let transaction_info = extractInfo(emailObj);
                                 console.log(transaction_info)
                                 addTransaction(transaction_info)
